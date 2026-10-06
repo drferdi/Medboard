@@ -1,188 +1,753 @@
-<div align="center">
+<table width="100%">
+<tr>
+<td width="34%" align="center" valign="top">
 
-<img src="public/intelligenceboard.png" alt="MedBoard" width="160"/>
+<img src="https://i.ibb.co.com/jZwfy0vB/drferdiikskandar.png" alt="dr. Ferdi Iskandar" width="150" />
+<br />
+<b>dr. Ferdi Iskandar</b><br />
+Lead Architect
+<br />
+<a href="https://ferdiiskandar.com">
+  <img src="https://img.shields.io/badge/FERDIISKANDAR.COM-0D1117?style=for-the-badge&logo=vercel&logoColor=white" alt="Official website" />
+</a>
+<br />
+<img src="https://img.shields.io/badge/KEDIRI%20INDONESIA-22D3EE?style=flat-square" alt="Kediri Indonesia" />
+<img src="https://img.shields.io/badge/UTC%2B7-5B8CFF?style=flat-square" alt="UTC+7" />
 
-# MedBoard
+</td>
+<td width="66%" valign="top">
 
-**Clinical intelligence dashboard for Indonesian primary healthcare**
+SENTRA / MEDBOARD
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-24-339933?logo=node.js)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/license-dual-blue)](./LICENSE)
+<img src="public/intelligenceboard.png" alt="MedBoard" width="92" align="right" />
 
-</div>
+<a href="https://medboard.sentrahai.com">
+  <img src="https://readme-typing-svg.demolab.com?font=Caveat&weight=700&size=33&duration=3400&pause=1500&color=EB5939&vCenter=true&width=710&height=44&lines=Clinical%20signals%20in.%20Reviewable%20decisions%20out." alt="Clinical signals in. Reviewable decisions out." />
+</a>
 
-MedBoard is the working surface for doctors, nurses, midwives and administrators at Puskesmas
-and other primary care facilities (FKTP, PONED). It brings the electronic medical record,
-clinical decision support, ICD-10 coding, telemedicine, internal communication and reporting
-into one web application, calibrated for the diseases and workflows of Indonesian primary care.
+<b>Operational signal:</b> Kediri, Indonesia · Clinical operations and decision-support workspace
 
-> **Technology enables, but humans decide.** MedBoard supports clinical judgement; it does not
-> replace it. Every diagnosis, prescription and referral stays the responsibility of the treating
-> clinician. See [`DISCLAIMER.md`](./DISCLAIMER.md).
+<a href="https://sentrahai.com/"><b>Sentra Artificial Intelligence</b></a><br />
+MedBoard is a clinical intelligence cockpit for Indonesian primary healthcare, combining clinical workflow, EMR integration, real-time coordination, reporting, telemedicine, and audited decision-support surfaces under explicit clinician authority.
 
-## Contents
+<p>
+  <a href="https://github.com/drferdi/Medboard" title="GitHub"><img src="https://cdn.simpleicons.org/github/8B949E" width="22" height="22" alt="GitHub" /></a>&nbsp;&nbsp;
+  <a href="https://ferdiiskandar.com" title="ferdiiskandar.com"><img src="https://cdn.simpleicons.org/vercel/8B949E" width="22" height="22" alt="ferdiiskandar.com" /></a>&nbsp;&nbsp;
+  <a href="https://sentrahai.com/" title="Sentra Artificial Intelligence"><img src="https://cdn.simpleicons.org/googlechrome/8B949E" width="22" height="22" alt="Sentra Artificial Intelligence" /></a>&nbsp;&nbsp;
+  <a href="https://medium.com/@drferdiiskandar" title="Medium"><img src="https://cdn.simpleicons.org/medium/8B949E" width="22" height="22" alt="Medium" /></a>&nbsp;&nbsp;
+  <a href="https://orcid.org/0009-0003-3788-1307" title="ORCID"><img src="https://cdn.simpleicons.org/orcid/8B949E" width="22" height="22" alt="ORCID" /></a>&nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/dr-ferdi-iskandar-1b620a3b5"><img src="https://img.shields.io/badge/LinkedIn-808080?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" height="22" /></a>
+</p>
 
-- [Features](#features)
-- [Tech stack](#tech-stack)
-- [Getting started](#getting-started)
-- [Configuration](#configuration)
-- [Scripts](#scripts)
-- [Project structure](#project-structure)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Security and privacy](#security-and-privacy)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
+<sub><code>CLINICAL SIGNAL → WORKFLOW / INTEGRATION → VERIFICATION & SAFETY → HUMAN AUTHORITY → CARE ACTION</code></sub>
 
-## Features
+</td>
+</tr>
+</table>
 
-| Module | Route | What it does |
-| --- | --- | --- |
-| Intelligence EMR | `/emr` | Clinical encounter workspace: anamnesis, vital signs with instant red alerts and NEWS2, clinical trajectory, assessment, prescription, and transfer to ePuskesmas |
-| MedLink | `/telemedicine` | Video consultation (LiveKit), triage requests and consultation timeline |
-| Consult Audrey | `/voice` | Voice consultation with Audrey, the clinical AI companion (push-to-talk) |
-| ICD Coding | `/icdx` | ICD-10 search, code conversion between versions and LB1 report generation |
-| Algorithma Calculator | `/calculator` | Validated clinical calculators (BMI, MAP, eGFR, qSOFA, GCS and more) |
-| Sentrapedia | `/sentrapedia` | Clinical reference for 144 Puskesmas conditions, with staff contributions reviewed by AI and approved by an administrator |
-| Sentra Hub | `/hub` | Crew directory and profiles |
-| Sentra Network | `/acars` | Internal clinical coordination and messaging (ACARS) |
-| Sentra Social | `/chat` | Team chat channels |
-| Intelligence Monitor | `/dashboard/intelligence` | Live operational and clinical safety feed |
-| Audit Log | `/audit/logbook` | Screening audit logbook with a tamper-evident hash chain |
-| Admin | `/admin` | Users and access, institutions, notices, integrations and review queues |
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16.3.6-0D1117?style=flat-square&logo=next.js&logoColor=white" alt="Next.js 16.3.6" />
+  <img src="https://img.shields.io/badge/React-19.2.3-149ECA?style=flat-square&logo=react&logoColor=white" alt="React 19.2.3" />
+  <img src="https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript 5.9.3" />
+  <img src="https://img.shields.io/badge/Node.js-24-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js 24" />
+  <img src="https://img.shields.io/badge/SAFRS-R2-F59E0B?style=flat-square" alt="SAFRS R2" />
+  <img src="https://img.shields.io/badge/HUMAN-GOVERNED-14B8A6?style=flat-square" alt="Human governed" />
+</p>
 
-Every page follows one design system: a white theme with Oxford Blue and red-orange, IBM Plex
-Sans, sentence-case text, black neumorphic buttons and Lucide icons. A full description of each
-feature is in [`docs/FEATURES.md`](./docs/FEATURES.md).
+01 / ORIGIN SIGNAL
 
-## Tech stack
+MedBoard is the working clinical surface for primary-care teams who need one place to coordinate patient-facing workflow, operational communication, structured reporting, and integrations that would otherwise be fragmented across separate systems.
 
-| Layer | Technology |
-| --- | --- |
-| Framework | Next.js 16 (App Router), React 19, TypeScript (strict) |
-| Server | Custom Node.js 24 server (`server.ts`) with Socket.IO for real-time features |
-| Data | PostgreSQL through Prisma 6; JSONL files under `runtime/` for local queues and histories |
-| Styling | Tailwind CSS 4, CSS modules, shared UI kit (`src/app/ui.css`) |
-| AI | DeepSeek for clinical reasoning and review; Groq Whisper for speech-to-text |
-| Video | LiveKit |
-| Automation | Playwright (EMR transfer to ePuskesmas) |
-| Tests | `node:test` through `tsx` |
+The repository implements a Next.js 16 / React 19 application with a custom Node.js server, Socket.IO real-time channels, Prisma/PostgreSQL persistence, Playwright-based ePuskesmas transfer automation, LiveKit telemedicine integration, clinical reference tools, reporting pipelines, and security/audit controls.
 
-## Getting started
+The principal users represented by the repository are doctors, dentists, nurses, midwives, pharmacists, triage personnel, and authorized administrators. Clinical outputs remain decision support: diagnosis, prescribing, referral, escalation, and other care decisions stay with the licensed treating clinician.
 
-### Prerequisites
+The repository also carries an explicit standalone project contract. Its lifecycle is defined independently through <code>project.contract.json</code>, with Node 24, pnpm 11.21.0, build/test/typecheck/run commands, HTTP smoke expectations, and external dependency declarations.
 
-- Node.js 24 (see [`.nvmrc`](./.nvmrc))
-- pnpm 11 (`corepack enable` picks the version pinned in `package.json`)
-- PostgreSQL 16
+-- https://ferdiiskandar.com
 
-### Install and run
+<p align="center">
+  <img src="https://img.shields.io/badge/SIGNAL-CLINICAL%20WORKFLOW-F43F5E?style=flat-square" alt="Clinical workflow" />
+  <img src="https://img.shields.io/badge/SIGNAL-REAL--TIME%20COORDINATION-F59E0B?style=flat-square" alt="Real-time coordination" />
+  <img src="https://img.shields.io/badge/SIGNAL-AUDITABLE%20HUMAN%20AUTHORITY-8B5CF6?style=flat-square" alt="Auditable human authority" />
+</p>
 
-```bash
+<table>
+<tr>
+<td width="33%" valign="top">
+
+<b><code>LAYER I · CLINICAL SURFACE</code></b>
+
+EMR workspace, patient-facing clinical data, calculators, ICD-X lookup, Sentrapedia, telemedicine, reports, and operational dashboards.
+
+</td>
+<td width="33%" valign="top">
+
+<b><code>LAYER II · INTEGRATION & COORDINATION</code></b>
+
+Socket.IO, Playwright ePuskesmas transfer, LiveKit, crew access, administrative workflows, reporting pipelines, and optional external services.
+
+</td>
+<td width="33%" valign="top">
+
+<b><code>LAYER III · SAFETY & AUTHORITY</code></b>
+
+Authentication, role checks, audit logging, deterministic safety checks, degraded-state behavior, deployment verification, and terminal human clinical authority.
+
+</td>
+</tr>
+</table>
+
+**Objective:** reduce workflow fragmentation while preserving explicit review, auditability, and clinician control over high-impact care decisions.
+
+02 / DOCTRINE
+
+> [!IMPORTANT]
+> **Technology enables; clinicians decide.** MedBoard may structure, surface, transfer, calculate, summarize, or assist. It does not become the final authority for diagnosis, treatment, prescribing, referral, or emergency escalation.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>HUMAN AUTHORITY IS TERMINAL</code></b>
+
+Clinical suggestions and workflow automation must terminate at an accountable human reviewer. The treating clinician retains final care authority.
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>DEGRADED IS BETTER THAN DECEPTIVE</code></b>
+
+Unavailable or retired clinical services should fail explicitly. The retired MedBoard diagnosis engine and disabled voice lane return service-unavailable behavior instead of pretending to be operational.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>PHI STAYS BOUNDED</code></b>
+
+Secrets and patient data belong in controlled runtime systems, not source control, fixtures, documentation, or unrestricted logs.
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>AUTOMATION MUST REMAIN REVIEWABLE</code></b>
+
+RPA, real-time events, reporting, and AI-supported paths need observable states, failure modes, and a recoverable route back to manual human operation.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>ONE PROBLEM, THEN DEPTH</code></b>
+
+MedBoard focuses on the primary-care operating surface: capture clinical signals, reduce duplicate work, coordinate care, and present reviewable outputs before expanding automation.
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>NO MAGIC WITHOUT AUDIT</code></b>
+
+A result is not trustworthy merely because it was generated. The repository provides explicit tests, security baselines, audit surfaces, health checks, and deployment dry-run checks.
+
+</td>
+</tr>
+</table>
+
+03 / PRODUCT TOPOLOGY
+
+<p align="center">
+  <img src="https://img.shields.io/badge/CLINICAL%20COCKPIT-5B8CFF?style=flat-square" alt="Clinical cockpit" />
+  <img src="https://img.shields.io/badge/EMR%20RPA-8B5CF6?style=flat-square" alt="EMR RPA" />
+  <img src="https://img.shields.io/badge/REAL--TIME%20SOCKETS-22D3EE?style=flat-square" alt="Real-time sockets" />
+  <img src="https://img.shields.io/badge/TELEMEDICINE-14B8A6?style=flat-square" alt="Telemedicine" />
+  <img src="https://img.shields.io/badge/SAFETY-F59E0B?style=flat-square" alt="Safety" />
+</p>
+
+<details open>
+<summary><b><code>LIVE TOPOLOGY // SYSTEM RELATION MAP</code></b></summary>
+
+~~~mermaid
+flowchart TB
+  HUMAN["CLINICIAN / AUTHORIZED OPERATOR"]
+  WEB["MEDBOARD WEB COCKPIT<br/>Next.js + React"]
+  SERVER["CUSTOM NODE SERVER<br/>Next.js handler + Socket.IO"]
+  DOMAIN["CLINICAL & OPERATIONS MODULES"]
+  DATA["POSTGRESQL / PRISMA<br/>+ controlled runtime state"]
+  EXT["EXTERNAL INTEGRATIONS<br/>ePuskesmas · LiveKit · Assist/MIRA"]
+  GATE["AUTH · SAFETY · AUDIT<br/>VERIFICATION GATE"]
+  OUT["REVIEWABLE OUTPUT / WORKFLOW STATE"]
+  ACTION["HUMAN-APPROVED CARE OR OPERATION"]
+
+  HUMAN --> WEB
+  WEB --> SERVER
+  SERVER --> DOMAIN
+  DATA --> DOMAIN
+  EXT --> DOMAIN
+  DOMAIN --> GATE
+  GATE --> OUT
+  OUT --> HUMAN
+  HUMAN --> ACTION
+~~~
+
+</details>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>01 · CLINICAL COCKPIT</code></b><br />
+<b>Primary operating surface</b>
+
+Routes include EMR, ICD-X, calculators, Sentrapedia, telemedicine, intelligence dashboards, audit logbook, crew hub, chat/ACARS, reports, and administration.
+
+<img src="https://img.shields.io/badge/FUNCTION-5B8CFF?style=flat-square" alt="Function" /><br />
+<sub>Browser-facing workflow; final clinical decisions remain human.</sub>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>02 · EMR TRANSFER</code></b><br />
+<b>Playwright-based workflow automation</b>
+
+Structured clinical data can be transferred toward ePuskesmas through an RPA engine with runtime credentials, progress reporting, and explicit failure states.
+
+<img src="https://img.shields.io/badge/FUNCTION-22D3EE?style=flat-square" alt="Function" /><br />
+<sub>Automation is operational assistance, not autonomous clinical authority.</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>03 · REAL-TIME COORDINATION</code></b><br />
+<b>Socket.IO-backed event channels</b>
+
+The custom server provides real-time communication for crew presence, clinical/operational events, and intelligence surfaces.
+
+<img src="https://img.shields.io/badge/FUNCTION-14B8A6?style=flat-square" alt="Function" /><br />
+<sub>Authenticated sessions gate protected real-time surfaces.</sub>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>04 · DECISION-SUPPORT BOUNDARY</code></b><br />
+<b>Assist/MIRA-forward differential path</b>
+
+The repository explicitly retires MedBoard's own diagnosis engine by default. The source retirement contract states that differential diagnosis is now provided by MIRA through Assist; legacy MedBoard CDSS routes return <code>503</code> unless explicitly re-enabled.
+
+<img src="https://img.shields.io/badge/STATE-RETIRED%20BY%20DEFAULT-F59E0B?style=flat-square" alt="Retired by default" /><br />
+<sub>Never interpret the presence of legacy engine code as proof that the engine is active.</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>05 · TELEMEDICINE</code></b><br />
+<b>LiveKit integration</b>
+
+LiveKit client/server packages and telemedicine routes support video consultation workflows when the required service configuration is present.
+
+<img src="https://img.shields.io/badge/FUNCTION-8B5CF6?style=flat-square" alt="Function" /><br />
+<sub>Optional external dependency; missing configuration should degrade explicitly.</sub>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>06 · AUDIT & SECURITY</code></b><br />
+<b>Traceable protected operations</b>
+
+Crew authentication, security audit logging, screening hash-chain services, CI security baselines, dependency audit commands, and PHI-aware boundaries provide reviewable operational evidence.
+
+<img src="https://img.shields.io/badge/FUNCTION-EB5939?style=flat-square" alt="Function" /><br />
+<sub>Audit evidence supports accountability; it does not replace clinical review.</sub>
+
+</td>
+</tr>
+</table>
+
+04 / THE ENGINE ROOM
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+<b><code>CLINICAL WORKFLOW</code></b>
+
+- EMR workspace and transfer orchestration
+- ICD-X lookup and coding support
+- Clinical calculators and NEWS2-related tests
+- Sentrapedia reference content
+- Clinical reporting and LB1 automation
+
+</td>
+<td width="33%" valign="top">
+
+<b><code>OPERATIONS & INTEGRATION</code></b>
+
+- Custom Node.js server
+- Socket.IO channels
+- LiveKit telemedicine
+- Playwright RPA
+- Crew/admin workflow surfaces
+- Health and deployment checks
+
+</td>
+<td width="33%" valign="top">
+
+<b><code>CONTROL & EVIDENCE</code></b>
+
+- Prisma/PostgreSQL persistence
+- HMAC/session-based crew access
+- Security and screening audit paths
+- Sentry integration
+- Type/test/build gates
+- SAFRS project contract
+
+</td>
+</tr>
+</table>
+
+<details open>
+<summary><b><code>RUNTIME TOPOLOGY // CONTROL & DATA PLANE</code></b></summary>
+
+~~~mermaid
+flowchart TB
+  HUMAN["CLINICIAN / OPERATOR"]
+  UI["NEXT.JS APP ROUTER UI"]
+  API["ROUTE HANDLERS + CUSTOM SERVER"]
+  RT["SOCKET.IO REAL-TIME CHANNELS"]
+  CORE["DOMAIN LOGIC / WORKFLOW ENGINES"]
+  DB["PRISMA + POSTGRESQL"]
+  INTEGRATIONS["ePUSKESMAS · LIVEKIT · OPTIONAL PROVIDERS"]
+  GATE["AUTHORIZATION · VALIDATION · AUDIT"]
+  OUT["REVIEWABLE OUTPUT"]
+  OPS["HUMAN-APPROVED ACTION"]
+  OBS["SENTRY / HEALTH / AUDIT EVIDENCE"]
+
+  HUMAN --> UI
+  UI --> API
+  API --> RT
+  API --> CORE
+  DB --> CORE
+  INTEGRATIONS --> CORE
+  CORE --> GATE
+  GATE --> OUT
+  OUT --> HUMAN
+  HUMAN --> OPS
+  API -. telemetry .-> OBS
+  OPS -. audit state .-> OBS
+~~~
+
+</details>
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,nodejs,postgres,prisma,tailwind" alt="MedBoard core technology icons" />
+</p>
+
+05 / SIGNAL PATH
+
+~~~mermaid
+flowchart TB
+  HUMAN["CLINICIAN / AUTHORIZED OPERATOR"]
+  INPUT["ENCOUNTER / WORKFLOW INPUT"]
+  NORM["VALIDATE & NORMALIZE"]
+  SAFETY["DETERMINISTIC WORKFLOW / SAFETY CHECKS"]
+  SERVICES["DOMAIN MODULES + INTEGRATIONS"]
+  DIFF["ASSIST / MIRA DIFFERENTIAL<br/>when decision-support is invoked"]
+  GATE["AUTH · AUDIT · FAILURE / UNCERTAINTY GATE"]
+  OUTPUT["REVIEWABLE RESULT / STATUS"]
+  ESC["DEGRADE · 503 · MANUAL FALLBACK · ESCALATE"]
+  REVIEW["TERMINAL HUMAN AUTHORITY"]
+
+  HUMAN --> INPUT
+  INPUT --> NORM
+  NORM --> SAFETY
+  SAFETY --> SERVICES
+  SERVICES --> DIFF
+  DIFF --> GATE
+  SERVICES --> GATE
+  GATE --> OUTPUT
+  GATE -. unavailable / unsafe / uncertain .-> ESC
+  OUTPUT --> REVIEW
+  ESC --> REVIEW
+~~~
+
+MedBoard must expose state rather than hide it. The voice surface is currently disabled and returns <code>503</code>. The legacy MedBoard diagnosis engine is retired by default and likewise returns <code>503</code> unless deliberately re-enabled. These failure states are part of the product's safety boundary: unavailable automation must not masquerade as valid clinical intelligence.
+
+The treating clinician remains responsible for the final diagnosis, prescription, referral, emergency escalation, and interpretation of any decision-support output.
+
+06 / BUILD PROTOCOL
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>FRONTEND</code></b>
+
+Next.js 16.3.6 App Router, React 19.2.3, TypeScript 5.9.3, Tailwind CSS 4.2.1, IBM Plex fonts, shared CSS surfaces, Lucide icons, Chart.js, and Leaflet.
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>BACKEND</code></b>
+
+Node.js 24 custom server (<code>server.ts</code>) combines the Next.js request handler with Socket.IO. API route handlers live under <code>src/app/api</code>.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>AI RUNTIME</code></b>
+
+MedBoard's legacy diagnosis engine remains in source but is retired by default. MIRA through Assist is the declared differential source in the retirement contract. Optional provider configuration remains for other AI-assisted surfaces. Audrey voice is currently disabled.
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>DATA / DOCUMENT / INTEGRATION</code></b>
+
+Prisma 6.19.x with PostgreSQL, controlled runtime files for selected queues/history, ePuskesmas automation through Playwright, LiveKit telemedicine, XLSX/LB1 reporting, and optional messaging/email/observability services.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>DATA & SECURITY</code></b>
+
+Runtime secrets are environment-driven. Protected surfaces use crew authorization/session checks, CORS allowlists, security audit logging, and explicit PHI handling guidance. Repository documentation forbids production credentials and real patient data in source control.
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>DEPLOYMENT</code></b>
+
+The deployment runbook documents a VPS target using Ubuntu, Caddy, systemd, Node 24, and PostgreSQL for <code>medboard.sentrahai.com</code>. Deployment status is not inferred solely from this README; use health checks and release verification before promotion.
+
+</td>
+</tr>
+</table>
+
+<details open>
+<summary><b><code>PROMOTION STATE // DEVELOPMENT → PRODUCTION</code></b></summary>
+
+~~~mermaid
+flowchart TB
+  DEV["DEVELOPMENT"]
+  TEST["TEST / TYPECHECK / BUILD"]
+  SEC["SECURITY BASELINE / AUDIT"]
+  DRY["DEPLOY DRY RUN"]
+  CLIN["CLINICAL / OPERATOR REVIEW"]
+  PROD["PRODUCTION PROMOTION"]
+  HEALTH["HEALTH CHECK + OBSERVATION"]
+  ROLL["ROLLBACK"]
+
+  DEV --> TEST
+  TEST --> SEC
+  SEC --> DRY
+  DRY --> CLIN
+  CLIN --> PROD
+  PROD --> HEALTH
+  HEALTH -. failure / unsafe signal .-> ROLL
+  ROLL --> DEV
+~~~
+
+</details>
+
+### Local Development
+
+Prerequisites:
+
+- Node.js 24
+- pnpm 11.21.0 through Corepack
+- PostgreSQL when database-backed flows are required
+- Runtime secrets/services only for the features being exercised
+
+~~~bash
 git clone https://github.com/drferdi/Medboard.git
 cd Medboard
 corepack enable
-pnpm install
-cp .env.example .env.local      # fill in the values you need
-pnpm run db:migrate             # create the database schema
-pnpm run dev                    # http://localhost:3000
-```
+pnpm install --frozen-lockfile
+cp .env.example .env.local
+pnpm run prisma:generate
+pnpm run db:migrate
+pnpm run dev
+~~~
 
-`pnpm install` also generates the Prisma client and installs the repository's git hooks.
+The development script loads <code>.env.local</code> and starts the custom server. Populate only the environment variables required for the workflow being tested.
 
-## Configuration
+### Verification
 
-All settings are environment variables; [`.env.example`](./.env.example) lists every one with a
-comment. Never commit real values.
+~~~bash
+pnpm run test:capsule
+pnpm run lint
+pnpm run build
+pnpm run deploy:dry-run
+pnpm run security:baseline
+pnpm run security:audit
+pnpm run check
+~~~
 
-| Area | Variables |
-| --- | --- |
-| Server | `PORT`, `NODE_ENV`, `NEXT_PUBLIC_BASE_URL`, `TRUST_PROXY_HEADERS`, `CORS_ALLOWED_ORIGINS` |
-| Database | `DATABASE_URL` |
-| Sign-in | `CREW_ACCESS_SECRET`, `CREW_ACCESS_USERS_JSON`, `CREW_ACCESS_AUTOMATION_TOKEN` |
-| AI | `DEEPSEEK_API_KEY`, `OLLAMA_BASE_URL` |
-| Telemedicine | `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET` |
-| EMR transfer | `EMR_BASE_URL`, `EMR_LOGIN_URL`, `EMR_USERNAME`, `EMR_PASSWORD`, `EMR_HEADLESS` |
-| LB1 reporting | `LB1_CONFIG_PATH`, `LB1_DATA_SOURCE_DIR`, `LB1_OUTPUT_DIR`, `LB1_TEMPLATE_PATH`, `LB1_MAPPING_PATH` |
-| Monitoring | `SENTRY_DSN` |
+> [!NOTE]
+> The repository currently names its TypeScript check <code>lint</code>; <code>project.contract.json</code> explicitly records that no separate linter is configured and maps typecheck to that script.
 
-## Scripts
+The standalone lifecycle contract is encoded in <code>project.contract.json</code>. The repository's GitHub Actions workflow also provisions PostgreSQL and runs the security baseline on pushes to <code>main</code>/<code>develop</code> and pull requests to <code>main</code>.
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm run dev` | Start the development server with Socket.IO (reads `.env.local`) |
-| `pnpm run build` | Generate the Prisma client and build for production |
-| `pnpm run start` | Start the production server |
-| `pnpm run lint` | Type-check the project (`tsc --noEmit`) |
-| `pnpm test` | Run the test suites |
-| `pnpm run test:capsule` | Run every suite, including the CDSS, NEWS2 and safety-gate checks |
-| `pnpm run check` | Tests, type check and build in one go |
-| `pnpm run db:migrate` / `db:seed` / `db:studio` | Database migrations, seed data and Prisma Studio |
-| `pnpm run security:audit` | Audit production dependencies |
+07 / THE SENTRA OPERATING STANDARD
 
-## Project structure
+No magic without audit.  
+No automation without verification.  
+No production promotion without rollback.  
+No sensitive data without explicit security boundaries.  
+No clinical authority without an accountable human reviewer.
 
-```text
-.
-├── src/
-│   ├── app/            # Routes, pages, API handlers and global styles
-│   ├── components/     # Shared React components (shell, clinical, telemedicine, UI)
-│   ├── hooks/          # React hooks
-│   ├── lib/            # Domain logic: CDSS, vitals, EMR, ICD, LB1, server utilities
-│   └── types/          # Shared types
-├── prisma/             # Schema, migrations and seed
-├── database/           # Reference data read at runtime (ICD-10, Audrey knowledge)
-├── public/             # Static assets and public reference data
-├── scripts/            # Test runners and maintenance scripts
-├── docs/               # Technical documentation
-└── server.ts           # Custom HTTP and Socket.IO server
-```
+> [!CAUTION]
+> Human authority is a terminal boundary. Any high-impact path that cannot expose its inputs, uncertainty, failure mode, and escalation route is not promotion-ready.
 
-## Testing
+<table>
+<tr>
+<th align="left">Interrogation</th>
+<th align="left">Required answer</th>
+</tr>
+<tr>
+<td><b>What specific problem does this solve?</b></td>
+<td>Fragmented primary-care workflow, duplicate entry, disconnected clinical signals, and operational coordination spread across multiple systems.</td>
+</tr>
+<tr>
+<td><b>Who is the human reviewer or accountable operator?</b></td>
+<td>The treating licensed clinician for clinical decisions; authorized administrators/operators for operational workflows; Chief retains authority over clinical logic and production-impact decisions.</td>
+</tr>
+<tr>
+<td><b>What is outside the scope?</b></td>
+<td>Autonomous diagnosis or treatment authority, unsupervised prescribing/referral, silent production changes, and storage of real PHI or secrets in the repository.</td>
+</tr>
+<tr>
+<td><b>What can fail?</b></td>
+<td>External service availability, database/configuration, EMR target changes, authentication, network connectivity, optional AI providers, telemedicine infrastructure, and RPA selectors. Voice is intentionally disabled; legacy MedBoard CDSS is retired by default.</td>
+</tr>
+<tr>
+<td><b>How is it verified?</b></td>
+<td>Capsule tests, TypeScript validation, production build, security baseline, dependency audit, deployment dry run, health endpoint checks, audit trails, and explicit human review.</td>
+</tr>
+</table>
 
-```bash
-pnpm test               # all suites
-pnpm test -- --filter design   # one suite by name or alias
-pnpm run lint           # type check
-```
+08 / SENTRA FOUNDATION · AGENT-FIRST ENGINEERING
 
-Tests sit next to the code they cover (`*.test.ts`). Suites that need PostgreSQL skip when
-`DATABASE_URL` is not set. Details are in [`docs/testing.md`](./docs/testing.md).
+MedBoard is developed within the Sentra Artificial Intelligence engineering ecosystem.
 
-## Deployment
+Where SAFRS governance applies, the operating model is:
 
-See [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md) and [`docs/deploy-vps.md`](./docs/deploy-vps.md).
-Run `pnpm run deploy:dry-run` before a release to check the build and the required settings.
+**Human-Governed · Agent-Executed · Machine-Enforced.**
 
-## Security and privacy
+The repository carries a machine-readable <code>project.contract.json</code> that identifies the product as <code>healthcare/medboard</code>, assigns capsule risk <code>R2</code>, pins the supported Node/pnpm lifecycle, and declares install, typecheck, test, build, run, smoke, and deploy-dry-run behavior.
 
-MedBoard handles clinical data under Indonesian law (UU Kesehatan No. 17/2023 and UU PDP
-No. 27/2022). Patient data never belongs in the repository, in test fixtures or in logs.
+The engineering boundary is explicit: agents may implement and verify within authorized scope, but clinical authority and high-impact production decisions remain human-governed. Executable checks and current source behavior outrank stale documentation.
 
-- Report vulnerabilities privately as described in [`SECURITY.md`](./SECURITY.md).
-- Data handling is described in [`DATA_PRIVACY.md`](./DATA_PRIVACY.md) and
-  [`docs/PRIVACY.md`](./docs/PRIVACY.md).
-- AI use, providers and human oversight are described in
-  [`docs/AI_GOVERNANCE.md`](./docs/AI_GOVERNANCE.md).
+<p align="center">
+  <img src="https://img.shields.io/badge/SENTRA-ARTIFICIAL%20INTELLIGENCE-5B8CFF?style=flat-square" alt="Sentra Artificial Intelligence" />
+  <img src="https://img.shields.io/badge/HUMAN-GOVERNED-F59E0B?style=flat-square" alt="Human Governed" />
+  <img src="https://img.shields.io/badge/AGENT-EXECUTED-8B5CF6?style=flat-square" alt="Agent Executed" />
+  <img src="https://img.shields.io/badge/MACHINE-ENFORCED-14B8A6?style=flat-square" alt="Machine Enforced" />
+</p>
 
-## Documentation
+09 / SENTRA DIVISIONAL HOME
 
-The technical documentation index is [`docs/README.md`](./docs/README.md): setup, architecture,
-API, data model, clinical logic, testing, deployment and troubleshooting. The system design is in
-[`ARCHITECTURE.md`](./ARCHITECTURE.md) and the release history in [`CHANGELOG.md`](./CHANGELOG.md).
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
 
-## Contributing
+<img src="https://img.shields.io/badge/DIVISION-SENTRA%20HEALTHCARE%20AI-22D3EE?style=flat-square" alt="Sentra Healthcare Artificial Intelligence" />
 
-Read [`CONTRIBUTING.md`](./CONTRIBUTING.md) before opening a pull request, and follow the
-[code of conduct](./CODE_OF_CONDUCT.md). Clinical content for Sentrapedia can also be proposed
-inside the application at `/sentrapedia/kontribusi`.
+<b><code>SENTRA HEALTHCARE ARTIFICIAL INTELLIGENCE</code></b><br />
+<sub>Healthcare systems, clinical intelligence, operational support, and human-governed decision-support products within Sentra Artificial Intelligence.</sub>
 
-## License
+</td>
+<td width="50%" valign="top">
 
-MedBoard is dual-licensed: a community license for individual, non-commercial use and an
-enterprise license for facilities and organisations. See [`LICENSE`](./LICENSE).
+<img src="https://img.shields.io/badge/PRODUCT-MEDBOARD-8B5CF6?style=flat-square" alt="MedBoard" />
 
-Copyright © 2024–2026 dr. Ferdi Iskandar (Drferdi).
+<b><code>MEDBOARD</code></b><br />
+<sub>Clinical intelligence cockpit and primary-care operating surface, with explicit separation between automation, decision support, and clinician authority.</sub>
+
+</td>
+</tr>
+</table>
+
+10 / OFFICIAL SPONSOR & INSTITUTIONAL CONTEXT
+
+No external sponsor is declared for this product. MedBoard is developed under Sentra Artificial Intelligence.
+
+Repository architecture and deployment documentation identify **UPTD Puskesmas PONED Balowerti, Kota Kediri** as the operational deployment context. This statement describes repository-documented institutional context and does **not** imply sponsorship, ownership, certification, or endorsement beyond what the repository explicitly records.
+
+11 / OPEN CHANNEL
+
+<p align="center">
+  <a href="https://github.com/drferdi/Medboard"><img src="https://img.shields.io/badge/GitHub-MedBoard-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://www.linkedin.com/in/dr-ferdi-iskandar-1b620a3b5"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://medium.com/@drferdiiskandar"><img src="https://img.shields.io/badge/Medium-111111?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>
+  <a href="https://x.com/ClaudesyI81047"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
+</p>
+
+Repository channels:
+
+- Technical documentation: <a href="./docs/README.md"><code>docs/README.md</code></a>
+- Architecture: <a href="./ARCHITECTURE.md"><code>ARCHITECTURE.md</code></a>
+- Security reporting: <a href="./SECURITY.md"><code>SECURITY.md</code></a>
+- Data/privacy boundaries: <a href="./DATA_PRIVACY.md"><code>DATA_PRIVACY.md</code></a>
+- Clinical disclaimer: <a href="./DISCLAIMER.md"><code>DISCLAIMER.md</code></a>
+- Contribution workflow: <a href="./CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a>
+- Release history: <a href="./CHANGELOG.md"><code>CHANGELOG.md</code></a>
+- License terms: <a href="./LICENSE"><code>LICENSE</code></a>
+
+MedBoard is dual-licensed under the terms in <code>LICENSE</code>. Review those terms before reuse, redistribution, deployment, or commercial operation.
+
+12 / ACTIVE STACK
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+
+<b><code>Next.js 16.3.6 · React 19.2.3</code></b><br />
+<small>App Router UI, route handlers, server rendering, application shell.</small>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>Node.js 24 · TypeScript 5.9.3</code></b><br />
+<small>Custom server runtime, typed application/domain logic, build and verification surface.</small>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>Prisma 6.19.x · PostgreSQL</code></b><br />
+<small>Persistent application data, migrations, typed database access.</small>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>Socket.IO 4.8.3</code></b><br />
+<small>Real-time crew, operational, and intelligence event channels.</small>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>Playwright 1.40+</code></b><br />
+<small>ePuskesmas workflow automation and browser-driven operational tasks.</small>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>LiveKit 2.x</code></b><br />
+<small>Telemedicine client/server integration when configured.</small>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<b><code>Tailwind CSS 4.2.1 · IBM Plex</code></b><br />
+<small>UI styling, typography, and design-system implementation.</small>
+
+</td>
+<td width="50%" valign="top">
+
+<b><code>Sentry 10.43.x</code></b><br />
+<small>Error/operational observability with repository-defined privacy boundaries.</small>
+
+</td>
+</tr>
+</table>
+
+13 / INSTRUMENTATION
+
+<small><code>ACTUAL TECHNOLOGY SURFACE · MEDBOARD</code></small>
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/01-LANGUAGES%20%26%20RUNTIMES-5B8CFF?style=flat-square" alt="Languages & Runtimes" />
+
+<b><code>LANGUAGES & RUNTIMES</code></b><br />
+<small>TypeScript 5.9.3 · Node.js 24 · TSX runtime tooling · pnpm 11.21.0</small>
+
+</td>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/02-FRONTEND%20%26%20UI-22D3EE?style=flat-square" alt="Frontend & UI" />
+
+<b><code>FRONTEND & UI</code></b><br />
+<small>Next.js 16.3.6 · React 19.2.3 · Tailwind CSS 4.2.1 · Lucide React · Chart.js · Leaflet · IBM Plex</small>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/03-BACKEND%20%26%20API-14B8A6?style=flat-square" alt="Backend & API" />
+
+<b><code>BACKEND & API</code></b><br />
+<small>Custom Node server · Next.js route handlers · Socket.IO 4.8.3 · Zod · Resend integration</small>
+
+</td>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/04-AI%20%C2%B7%20ML%20%C2%B7%20AUTOMATION-8B5CF6?style=flat-square" alt="AI ML Automation" />
+
+<b><code>AI · ML · AUTOMATION</code></b><br />
+<small>MIRA via Assist as declared differential source · legacy MedBoard CDSS retired by default · optional DeepSeek configuration for AI-supported surfaces · Playwright automation · Audrey voice disabled</small>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/05-DATABASE%20%26%20STORAGE-0EA5E9?style=flat-square" alt="Database & Storage" />
+
+<b><code>DATABASE & STORAGE</code></b><br />
+<small>PostgreSQL · Prisma Client/Adapter PG 6.19.x · controlled runtime files for selected queues/history · XLSX/CSV/JSON reporting artifacts</small>
+
+</td>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/06-DEVOPS%20%C2%B7%20CLOUD%20%C2%B7%20INFRA-F59E0B?style=flat-square" alt="DevOps Cloud Infra" />
+
+<b><code>DEVOPS · CLOUD · INFRA</code></b><br />
+<small>GitHub Actions · documented VPS/Caddy/systemd deployment · Corepack/pnpm · deployment dry-run · HTTP health check</small>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/07-TESTING%20%26%20QA-10B981?style=flat-square" alt="Testing & QA" />
+
+<b><code>TESTING & QA</code></b><br />
+<small>Custom TSX test suite · CDSS engine tests · NEWS2 tests · Symphony safety-gate tests · auth-hardening tests · TypeScript no-emit validation · production build gate</small>
+
+</td>
+<td width="50%" valign="top">
+
+<img src="https://img.shields.io/badge/08-SECURITY%20%26%20GOVERNANCE-EB5939?style=flat-square" alt="Security & Governance" />
+
+<b><code>SECURITY & GOVERNANCE</code></b><br />
+<small>Crew authorization/session controls · CORS allowlists · security audit logging · screening hash chain · secret scan · dependency audit · SAFRS project contract · explicit human clinical authority</small>
+
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <b>Architected and built by dr. Ferdi Iskandar (the Gaffer) · Sentra Artificial Intelligence.</b><br />
+  MedBoard turns clinical and operational signals into reviewable workflows without surrendering human authority.<br />
+  <sub><code>// the surface is documentation. the depth is running.</code></sub>
+</p>
