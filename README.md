@@ -92,7 +92,10 @@ The machine-readable lifecycle contract is <code>project.contract.json</code>: p
 
 ## 03 / PRODUCT TOPOLOGY
 
-~~~mermaid
+<details open>
+<summary><b><code>LIVE TOPOLOGY // SYSTEM RELATION MAP</code></b></summary>
+
+```mermaid
 %%{init: {"flowchart": {"htmlLabels": false, "padding": 20}, "themeVariables": {"fontFamily": "monospace", "fontSize": "11px"}}}%%
 flowchart TB
   HUMAN["CLINICIAN / AUTHORIZED OPERATOR"]
@@ -132,7 +135,9 @@ flowchart TB
   class SERVER,DOMAIN core;
   class DB,EMR shared;
   class UI,VIDEO,OUT surface;
-~~~
+```
+
+</details>
 
 <table>
 <tr>
@@ -157,18 +162,18 @@ flowchart TB
 
 | Surface | Repository-evidenced state | Boundary |
 |---|---|---|
-| Web cockpit / operational UI | Active source surface | Human operator remains accountable |
-| ePuskesmas transfer | Implemented via Playwright | Target-system/session changes can break RPA |
-| Socket.IO coordination | Implemented in custom server | Protected channels require valid crew authorization |
-| Telemedicine | Implemented via LiveKit integration | Requires LiveKit configuration |
-| Legacy MedBoard diagnosis engine | **Retired by default** | 503 unless explicitly re-enabled |
-| Differential diagnosis source | Retirement contract names **MIRA via Assist** | External/adjacent service; availability is not inferred from this repo |
-| Voice chat | **Disabled** | Returns 503 |
-| Voice token | **Disabled** | Returns 503 |
-| Voice TTS | **Disabled** | Returns 503 |
-| Voice STT | Implemented via **Groq Whisper** | Requires <code>GROQ_API_KEY</code>; failures are audited |
-| Sentry | Integrated | Runtime DSN/configuration required |
-| PostgreSQL / Prisma | Supported persistence layer | Database-backed flows require <code>DATABASE_URL</code> |
+| <small>Web cockpit / operational UI</small> | <small>Active source surface</small> | <small>Human operator remains accountable</small> |
+| <small>ePuskesmas transfer</small> | <small>Implemented via Playwright</small> | <small>Target-system/session changes can break RPA</small> |
+| <small>Socket.IO coordination</small> | <small>Implemented in custom server</small> | <small>Protected channels require valid crew authorization</small> |
+| <small>Telemedicine</small> | <small>Implemented via LiveKit integration</small> | <small>Requires LiveKit configuration</small> |
+| <small>Legacy MedBoard diagnosis engine</small> | <small>**Retired by default**</small> | <small>503 unless explicitly re-enabled</small> |
+| <small>Differential diagnosis source</small> | <small>Retirement contract names **MIRA via Assist**</small> | <small>External/adjacent service; availability is not inferred from this repo</small> |
+| <small>Voice chat</small> | <small>**Disabled**</small> | <small>Returns 503</small> |
+| <small>Voice token</small> | <small>**Disabled**</small> | <small>Returns 503</small> |
+| <small>Voice TTS</small> | <small>**Disabled**</small> | <small>Returns 503</small> |
+| <small>Voice STT</small> | <small>Implemented via **Groq Whisper**</small> | <small>Requires <code>GROQ_API_KEY</code>; failures are audited</small> |
+| <small>Sentry</small> | <small>Integrated</small> | <small>Runtime DSN/configuration required</small> |
+| <small>PostgreSQL / Prisma</small> | <small>Supported persistence layer</small> | <small>Database-backed flows require <code>DATABASE_URL</code></small> |
 
 > [!NOTE]
 > The presence of legacy or optional code is **not** proof that a feature is active in a deployed environment.
@@ -177,7 +182,10 @@ flowchart TB
 
 ## 05 / SIGNAL PATH
 
-~~~mermaid
+<details open>
+<summary><b><code>SIGNAL PATH // HUMAN AUTHORITY MAP</code></b></summary>
+
+```mermaid
 %%{init: {"flowchart": {"htmlLabels": false, "padding": 20}, "themeVariables": {"fontFamily": "monospace", "fontSize": "11px"}}}%%
 flowchart TB
   HUMAN["CLINICIAN / AUTHORIZED OPERATOR"]
@@ -216,7 +224,9 @@ flowchart TB
   class VALIDATE,MODULES core;
   class INPUT,DEGRADE shared;
   class RESULT surface;
-~~~
+```
+
+</details>
 
 **Safety boundary:** MedBoard must expose uncertainty and unavailable states rather than conceal them. The treating clinician remains responsible for final interpretation and care decisions.
 
@@ -272,13 +282,13 @@ pnpm run check
 
 | Gate | Contract behavior |
 |---|---|
-| Install | <code>node scripts/pnpm.mjs install --frozen-lockfile</code> |
-| Typecheck | <code>node scripts/pnpm.mjs run lint</code> |
-| Test | <code>node scripts/pnpm.mjs run test:capsule</code> |
-| Build | <code>node scripts/pnpm.mjs run build</code> |
-| Run | <code>node scripts/pnpm.mjs run start:local</code> |
-| Smoke | HTTP GET / on 127.0.0.1:4344, expected 200 |
-| Deploy dry run | <code>node scripts/pnpm.mjs run deploy:dry-run</code> |
+| <small>Install</small> | <small><code>node scripts/pnpm.mjs install --frozen-lockfile</code></small> |
+| <small>Typecheck</small> | <small><code>node scripts/pnpm.mjs run lint</code></small> |
+| <small>Test</small> | <small><code>node scripts/pnpm.mjs run test:capsule</code></small> |
+| <small>Build</small> | <small><code>node scripts/pnpm.mjs run build</code></small> |
+| <small>Run</small> | <small><code>node scripts/pnpm.mjs run start:local</code></small> |
+| <small>Smoke</small> | <small>HTTP GET / on 127.0.0.1:4344, expected 200</small> |
+| <small>Deploy dry run</small> | <small><code>node scripts/pnpm.mjs run deploy:dry-run</code></small> |
 
 > [!WARNING]
 > Do not claim production readiness from documentation alone. Promotion requires current verification, environment-specific configuration, human review, and a rollback path.
@@ -295,11 +305,11 @@ pnpm run check
 
 | Interrogation | Required answer |
 |---|---|
-| What problem does this solve? | Fragmented primary-care workflow, duplicate entry, disconnected operational signals, and cross-system coordination. |
-| Who is accountable? | Treating licensed clinician for clinical decisions; authorized operator/admin for operational workflows; Chief for high-impact clinical logic and production decisions. |
-| What is outside scope? | Autonomous diagnosis/treatment authority, unsupervised prescribing/referral, silent production changes, and real PHI/secrets in source control. |
-| What can fail? | External services, database/configuration, authentication, network, RPA selectors, telemedicine infrastructure, optional providers, and downstream systems. |
-| How is it verified? | Capsule tests, TypeScript validation, production build, security baseline, dependency audit, deploy dry run, smoke/health checks, audit evidence, and human review. |
+| <small>What problem does this solve?</small> | <small>Fragmented primary-care workflow, duplicate entry, disconnected operational signals, and cross-system coordination.</small> |
+| <small>Who is accountable?</small> | <small>Treating licensed clinician for clinical decisions; authorized operator/admin for operational workflows; Chief for high-impact clinical logic and production decisions.</small> |
+| <small>What is outside scope?</small> | <small>Autonomous diagnosis/treatment authority, unsupervised prescribing/referral, silent production changes, and real PHI/secrets in source control.</small> |
+| <small>What can fail?</small> | <small>External services, database/configuration, authentication, network, RPA selectors, telemedicine infrastructure, optional providers, and downstream systems.</small> |
+| <small>How is it verified?</small> | <small>Capsule tests, TypeScript validation, production build, security baseline, dependency audit, deploy dry run, smoke/health checks, audit evidence, and human review.</small> |
 
 ---
 
@@ -360,14 +370,14 @@ Deployment documentation targets <code>medboard.sentrahai.com</code> behind Cadd
 
 | Resource | Purpose |
 |---|---|
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Architecture notes and system structure |
-| [docs/README.md](./docs/README.md) | Documentation index |
-| [SECURITY.md](./SECURITY.md) | Security controls and vulnerability reporting |
-| [DATA_PRIVACY.md](./DATA_PRIVACY.md) | High-level privacy boundaries |
-| [DISCLAIMER.md](./DISCLAIMER.md) | Clinical disclaimer |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution workflow |
-| [CHANGELOG.md](./CHANGELOG.md) | Release history |
-| [LICENSE](./LICENSE) | Dual-license terms |
+| <small>[ARCHITECTURE.md](./ARCHITECTURE.md)</small> | <small>Architecture notes and system structure</small> |
+| <small>[docs/README.md](./docs/README.md)</small> | <small>Documentation index</small> |
+| <small>[SECURITY.md](./SECURITY.md)</small> | <small>Security controls and vulnerability reporting</small> |
+| <small>[DATA_PRIVACY.md](./DATA_PRIVACY.md)</small> | <small>High-level privacy boundaries</small> |
+| <small>[DISCLAIMER.md](./DISCLAIMER.md)</small> | <small>Clinical disclaimer</small> |
+| <small>[CONTRIBUTING.md](./CONTRIBUTING.md)</small> | <small>Contribution workflow</small> |
+| <small>[CHANGELOG.md](./CHANGELOG.md)</small> | <small>Release history</small> |
+| <small>[LICENSE](./LICENSE)</small> | <small>Dual-license terms</small> |
 
 MedBoard is dual-licensed as described in <code>LICENSE</code>: qualifying individual/non-commercial use under the stated community terms, while organizational/commercial deployment requires the applicable enterprise license.
 
