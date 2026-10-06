@@ -60,9 +60,9 @@ The machine-readable lifecycle contract is <code>project.contract.json</code>: p
 
 <table>
 <tr>
-<td width="33%" valign="top"><b>CLINICAL SURFACE</b><br /><br />EMR workspace, ICD-X, calculators, Sentrapedia, telemedicine, reporting, audit and intelligence surfaces.</td>
-<td width="33%" valign="top"><b>INTEGRATION PLANE</b><br /><br />Socket.IO, Playwright ePuskesmas transfer, LiveKit, messaging/email hooks, optional AI providers.</td>
-<td width="33%" valign="top"><b>CONTROL PLANE</b><br /><br />Authentication, role checks, audit trails, deterministic safety checks, degraded-state behavior, verification gates.</td>
+<td width="33%" valign="top"><b>CLINICAL SURFACE</b><br /><br /><small>EMR workspace, ICD-X, calculators, Sentrapedia, telemedicine, reporting, audit and intelligence surfaces.</small></td>
+<td width="33%" valign="top"><b>INTEGRATION PLANE</b><br /><br /><small>Socket.IO, Playwright ePuskesmas transfer, LiveKit, messaging/email hooks, optional AI providers.</small></td>
+<td width="33%" valign="top"><b>CONTROL PLANE</b><br /><br /><small>Authentication, role checks, audit trails, deterministic safety checks, degraded-state behavior, verification gates.</small></td>
 </tr>
 </table>
 
@@ -75,16 +75,16 @@ The machine-readable lifecycle contract is <code>project.contract.json</code>: p
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>HUMAN AUTHORITY IS TERMINAL</b><br /><br />Decision support must terminate at an accountable human reviewer. Automation cannot silently become clinical authority.</td>
-<td width="50%" valign="top"><b>STATE MUST BE HONEST</b><br /><br />Unavailable, retired, or unconfigured services must expose that state explicitly. A 503 is safer than simulated confidence.</td>
+<td width="50%" valign="top"><b>HUMAN AUTHORITY IS TERMINAL</b><br /><br /><small>Decision support must terminate at an accountable human reviewer. Automation cannot silently become clinical authority.</small></td>
+<td width="50%" valign="top"><b>STATE MUST BE HONEST</b><br /><br /><small>Unavailable, retired, or unconfigured services must expose that state explicitly. A 503 is safer than simulated confidence.</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>PHI STAYS BOUNDED</b><br /><br />Production secrets and patient data belong in controlled runtime systems, not source control, fixtures, screenshots, or unrestricted logs.</td>
-<td width="50%" valign="top"><b>AUTOMATION MUST BE REVIEWABLE</b><br /><br />RPA, real-time events, AI-supported paths, reporting, and integrations need observable inputs, outputs, failure modes, and manual fallback.</td>
+<td width="50%" valign="top"><b>PHI STAYS BOUNDED</b><br /><br /><small>Production secrets and patient data belong in controlled runtime systems, not source control, fixtures, screenshots, or unrestricted logs.</small></td>
+<td width="50%" valign="top"><b>AUTOMATION MUST BE REVIEWABLE</b><br /><br /><small>RPA, real-time events, AI-supported paths, reporting, and integrations need observable inputs, outputs, failure modes, and manual fallback.</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>SOURCE OUTRANKS STORY</b><br /><br />Executable behavior, package manifests, project contracts, tests, and route code outrank stale prose when documentation disagrees.</td>
-<td width="50%" valign="top"><b>NO MAGIC WITHOUT AUDIT</b><br /><br />A generated answer is not evidence. Verification, authorization, auditability, and accountable review are part of the product.</td>
+<td width="50%" valign="top"><b>SOURCE OUTRANKS STORY</b><br /><br /><small>Executable behavior, package manifests, project contracts, tests, and route code outrank stale prose when documentation disagrees.</small></td>
+<td width="50%" valign="top"><b>NO MAGIC WITHOUT AUDIT</b><br /><br /><small>A generated answer is not evidence. Verification, authorization, auditability, and accountable review are part of the product.</small></td>
 </tr>
 </table>
 
@@ -93,17 +93,18 @@ The machine-readable lifecycle contract is <code>project.contract.json</code>: p
 ## 03 / PRODUCT TOPOLOGY
 
 ~~~mermaid
+%%{init: {"flowchart": {"htmlLabels": false, "padding": 20}, "themeVariables": {"fontFamily": "monospace", "fontSize": "11px"}}}%%
 flowchart TB
   HUMAN["CLINICIAN / AUTHORIZED OPERATOR"]
-  UI["MEDBOARD WEB COCKPIT<br/>Next.js + React"]
-  SERVER["CUSTOM NODE SERVER<br/>Next.js handler + Socket.IO"]
+  UI["MEDBOARD WEB COCKPIT"]
+  SERVER["CUSTOM NODE SERVER"]
   DOMAIN["CLINICAL + OPERATIONS MODULES"]
   DB["POSTGRESQL + PRISMA"]
-  EMR["ePUSKESMAS RPA<br/>Playwright"]
-  VIDEO["TELEMEDICINE<br/>LiveKit"]
-  AI["OPTIONAL AI / ASSISTED SURFACES"]
-  GATE["AUTH + SAFETY + AUDIT<br/>VERIFICATION GATE"]
-  OUT["REVIEWABLE OUTPUT / WORKFLOW STATE"]
+  EMR["ePUSKESMAS RPA"]
+  VIDEO["TELEMEDICINE"]
+  AI["ASSISTED INTELLIGENCE"]
+  GATE["AUTH + SAFETY + AUDIT"]
+  OUT["REVIEWABLE OUTPUT"]
   ACTION["HUMAN-APPROVED ACTION"]
 
   HUMAN --> UI
@@ -117,20 +118,34 @@ flowchart TB
   GATE --> OUT
   OUT --> HUMAN
   HUMAN --> ACTION
+
+  classDef authority fill:#0D1117,stroke:#F59E0B,color:#ffffff,stroke-width:2px;
+  classDef agent fill:#0D1117,stroke:#8B5CF6,color:#ffffff,stroke-width:2px;
+  classDef control fill:#0D1117,stroke:#14B8A6,color:#ffffff,stroke-width:2px;
+  classDef core fill:#0D1117,stroke:#5B8CFF,color:#ffffff,stroke-width:2px;
+  classDef shared fill:#0D1117,stroke:#64748B,color:#ffffff,stroke-width:1.5px;
+  classDef surface fill:#0D1117,stroke:#22D3EE,color:#ffffff,stroke-width:1.5px;
+
+  class HUMAN,ACTION authority;
+  class AI agent;
+  class GATE control;
+  class SERVER,DOMAIN core;
+  class DB,EMR shared;
+  class UI,VIDEO,OUT surface;
 ~~~
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>CLINICAL COCKPIT</b><br /><br />Routes include EMR, ICD-X, calculators, Sentrapedia, telemedicine, intelligence, audit, reports, crew/admin surfaces, and supporting APIs.</td>
-<td width="50%" valign="top"><b>EMR TRANSFER</b><br /><br />Playwright-backed automation supports transfer toward ePuskesmas with runtime credentials and explicit progress/failure states.</td>
+<td width="50%" valign="top"><b>CLINICAL COCKPIT</b><br /><br /><small>Routes include EMR, ICD-X, calculators, Sentrapedia, telemedicine, intelligence, audit, reports, crew/admin surfaces, and supporting APIs.</small></td>
+<td width="50%" valign="top"><b>EMR TRANSFER</b><br /><br /><small>Playwright-backed automation supports transfer toward ePuskesmas with runtime credentials and explicit progress/failure states.</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>REAL-TIME COORDINATION</b><br /><br />The custom server hosts Socket.IO channels for crew and operational/intelligence events. Protected channels are session-gated.</td>
-<td width="50%" valign="top"><b>TELEMEDICINE</b><br /><br />LiveKit client/server packages and telemedicine routes are present. The service is optional and requires runtime configuration.</td>
+<td width="50%" valign="top"><b>REAL-TIME COORDINATION</b><br /><br /><small>The custom server hosts Socket.IO channels for crew and operational/intelligence events. Protected channels are session-gated.</small></td>
+<td width="50%" valign="top"><b>TELEMEDICINE</b><br /><br /><small>LiveKit client/server packages and telemedicine routes are present. The service is optional and requires runtime configuration.</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>DECISION-SUPPORT BOUNDARY</b><br /><br />The legacy MedBoard diagnosis engine remains in source but is <b>retired by default</b>. <code>/api/cdss/diagnose</code> returns 503 unless <code>LEGACY_CDSS_ENGINE_ENABLED=true</code>.</td>
-<td width="50%" valign="top"><b>AUDIT + SECURITY</b><br /><br />Crew authentication, role checks, security audit logging, screening audit services, secret scanning, dependency audit, and CI security-baseline checks provide traceable evidence.</td>
+<td width="50%" valign="top"><b>DECISION-SUPPORT BOUNDARY</b><br /><br /><small>The legacy MedBoard diagnosis engine remains in source but is <b>retired by default</b>. <code>/api/cdss/diagnose</code> returns 503 unless <code>LEGACY_CDSS_ENGINE_ENABLED=true</code>.</small></td>
+<td width="50%" valign="top"><b>AUDIT + SECURITY</b><br /><br /><small>Crew authentication, role checks, security audit logging, screening audit services, secret scanning, dependency audit, and CI security-baseline checks provide traceable evidence.</small></td>
 </tr>
 </table>
 
@@ -163,16 +178,17 @@ flowchart TB
 ## 05 / SIGNAL PATH
 
 ~~~mermaid
+%%{init: {"flowchart": {"htmlLabels": false, "padding": 20}, "themeVariables": {"fontFamily": "monospace", "fontSize": "11px"}}}%%
 flowchart TB
   HUMAN["CLINICIAN / AUTHORIZED OPERATOR"]
   INPUT["ENCOUNTER / WORKFLOW INPUT"]
   VALIDATE["VALIDATE + NORMALIZE"]
-  SAFETY["DETERMINISTIC SAFETY / WORKFLOW CHECKS"]
+  SAFETY["DETERMINISTIC SAFETY CHECKS"]
   MODULES["DOMAIN MODULES + INTEGRATIONS"]
-  SUPPORT["OPTIONAL DECISION-SUPPORT PATH"]
-  GATE["AUTH + AUDIT + UNCERTAINTY / FAILURE GATE"]
+  SUPPORT["OPTIONAL DECISION SUPPORT"]
+  GATE["AUTH + AUDIT + FAILURE GATE"]
   RESULT["REVIEWABLE RESULT / STATUS"]
-  DEGRADE["503 / MANUAL FALLBACK / ESCALATION"]
+  DEGRADE["503 / MANUAL FALLBACK / ESCALATE"]
   REVIEW["TERMINAL HUMAN REVIEW"]
 
   HUMAN --> INPUT
@@ -186,6 +202,20 @@ flowchart TB
   GATE -. unavailable / unsafe / uncertain .-> DEGRADE
   RESULT --> REVIEW
   DEGRADE --> REVIEW
+
+  classDef authority fill:#0D1117,stroke:#F59E0B,color:#ffffff,stroke-width:2px;
+  classDef agent fill:#0D1117,stroke:#8B5CF6,color:#ffffff,stroke-width:2px;
+  classDef control fill:#0D1117,stroke:#14B8A6,color:#ffffff,stroke-width:2px;
+  classDef core fill:#0D1117,stroke:#5B8CFF,color:#ffffff,stroke-width:2px;
+  classDef shared fill:#0D1117,stroke:#64748B,color:#ffffff,stroke-width:1.5px;
+  classDef surface fill:#0D1117,stroke:#22D3EE,color:#ffffff,stroke-width:1.5px;
+
+  class HUMAN,REVIEW authority;
+  class SUPPORT agent;
+  class SAFETY,GATE control;
+  class VALIDATE,MODULES core;
+  class INPUT,DEGRADE shared;
+  class RESULT surface;
 ~~~
 
 **Safety boundary:** MedBoard must expose uncertainty and unavailable states rather than conceal them. The treating clinician remains responsible for final interpretation and care decisions.
@@ -196,12 +226,12 @@ flowchart TB
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>FRONTEND</b><br /><br />Next.js 16.3.6 · React 19.2.3 · TypeScript 5.9.3 · Tailwind CSS 4.2.1 · IBM Plex · Lucide · Chart.js · Leaflet.</td>
-<td width="50%" valign="top"><b>BACKEND</b><br /><br />Node.js 24 custom server (<code>server.ts</code>) combining the Next.js handler with Socket.IO. API routes live under <code>src/app/api</code>.</td>
+<td width="50%" valign="top"><b>FRONTEND</b><br /><br /><small>Next.js 16.3.6 · React 19.2.3 · TypeScript 5.9.3 · Tailwind CSS 4.2.1 · IBM Plex · Lucide · Chart.js · Leaflet.</small></td>
+<td width="50%" valign="top"><b>BACKEND</b><br /><br /><small>Node.js 24 custom server (<code>server.ts</code>) combining the Next.js handler with Socket.IO. API routes live under <code>src/app/api</code>.</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>DATA</b><br /><br />Prisma 6.19.x · PostgreSQL · migrations · controlled runtime files for selected operational state and queues.</td>
-<td width="50%" valign="top"><b>INTEGRATIONS</b><br /><br />Playwright · LiveKit · Resend · WhatsApp Cloud API hooks · Sentry · optional model-provider configuration.</td>
+<td width="50%" valign="top"><b>DATA</b><br /><br /><small>Prisma 6.19.x · PostgreSQL · migrations · controlled runtime files for selected operational state and queues.</small></td>
+<td width="50%" valign="top"><b>INTEGRATIONS</b><br /><br /><small>Playwright · LiveKit · Resend · WhatsApp Cloud API hooks · Sentry · optional model-provider configuration.</small></td>
 </tr>
 </table>
 
@@ -298,12 +328,12 @@ Agents may implement and verify inside authorized scope. **Clinical authority an
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/DIVISION-SENTRA%20HEALTHCARE%20AI-22D3EE?style=flat-square" alt="Sentra Healthcare AI" /><br /><br />
 <b>SENTRA HEALTHCARE ARTIFICIAL INTELLIGENCE</b><br /><br />
-Healthcare systems, clinical intelligence, operational support, and human-governed decision-support products within Sentra Artificial Intelligence.
+<small>Healthcare systems, clinical intelligence, operational support, and human-governed decision-support products within Sentra Artificial Intelligence.</small>
 </td>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/PRODUCT-MEDBOARD-8B5CF6?style=flat-square" alt="MedBoard" /><br /><br />
 <b>MEDBOARD</b><br /><br />
-Clinical operations cockpit and primary-care operating surface with explicit separation between automation, decision support, verification, and clinician authority.
+<small>Clinical operations cockpit and primary-care operating surface with explicit separation between automation, decision support, verification, and clinician authority.</small>
 </td>
 </tr>
 </table>
@@ -347,16 +377,16 @@ MedBoard is dual-licensed as described in <code>LICENSE</code>: qualifying indiv
 
 <table width="100%">
 <tr>
-<td width="50%" valign="top"><b>APPLICATION</b><br /><br />Next.js 16.3.6 · React 19.2.3 · TypeScript 5.9.3 · Node.js 24</td>
-<td width="50%" valign="top"><b>DATA</b><br /><br />Prisma 6.19.x · @prisma/adapter-pg · PostgreSQL / pg</td>
+<td width="50%" valign="top"><b>APPLICATION</b><br /><br /><small>Next.js 16.3.6 · React 19.2.3 · TypeScript 5.9.3 · Node.js 24</small></td>
+<td width="50%" valign="top"><b>DATA</b><br /><br /><small>Prisma 6.19.x · @prisma/adapter-pg · PostgreSQL / pg</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>REAL-TIME + VIDEO</b><br /><br />Socket.IO 4.8.3 · LiveKit 2.x</td>
-<td width="50%" valign="top"><b>AUTOMATION</b><br /><br />Playwright 1.40+ · TSX · repository test/deploy scripts</td>
+<td width="50%" valign="top"><b>REAL-TIME + VIDEO</b><br /><br /><small>Socket.IO 4.8.3 · LiveKit 2.x</small></td>
+<td width="50%" valign="top"><b>AUTOMATION</b><br /><br /><small>Playwright 1.40+ · TSX · repository test/deploy scripts</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>UI + VISUALIZATION</b><br /><br />Tailwind CSS 4.2.1 · IBM Plex · Lucide · Chart.js · Leaflet · Motion</td>
-<td width="50%" valign="top"><b>OPERATIONS</b><br /><br />Sentry 10.43.x · Resend · WhatsApp Cloud API hooks · GitHub Actions</td>
+<td width="50%" valign="top"><b>UI + VISUALIZATION</b><br /><br /><small>Tailwind CSS 4.2.1 · IBM Plex · Lucide · Chart.js · Leaflet · Motion</small></td>
+<td width="50%" valign="top"><b>OPERATIONS</b><br /><br /><small>Sentry 10.43.x · Resend · WhatsApp Cloud API hooks · GitHub Actions</small></td>
 </tr>
 </table>
 
@@ -368,31 +398,31 @@ MedBoard is dual-licensed as described in <code>LICENSE</code>: qualifying indiv
 <tr>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/01-RUNTIME-5B8CFF?style=flat-square" alt="Runtime" /><br /><br />
-<b>RUNTIME</b><br />Node.js 24 · pnpm 11.21.0 · custom server.ts · Next.js production build.
+<b>RUNTIME</b><br /><small>Node.js 24 · pnpm 11.21.0 · custom server.ts · Next.js production build.</small>
 </td>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/02-QUALITY-10B981?style=flat-square" alt="Quality" /><br /><br />
-<b>QUALITY</b><br />Capsule tests · CDSS engine tests · NEWS2 tests · Symphony safety-gate tests · auth-hardening checks · TypeScript no-emit · build gate.
+<b>QUALITY</b><br /><small>Capsule tests · CDSS engine tests · NEWS2 tests · Symphony safety-gate tests · auth-hardening checks · TypeScript no-emit · build gate.</small>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/03-SECURITY-EB5939?style=flat-square" alt="Security" /><br /><br />
-<b>SECURITY</b><br />Crew sessions · clinical-role checks · CORS allowlists · security audit logging · secret scan · dependency audit · PHI-aware telemetry boundaries.
+<b>SECURITY</b><br /><small>Crew sessions · clinical-role checks · CORS allowlists · security audit logging · secret scan · dependency audit · PHI-aware telemetry boundaries.</small>
 </td>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/04-OBSERVABILITY-F59E0B?style=flat-square" alt="Observability" /><br /><br />
-<b>OBSERVABILITY</b><br />Sentry integration · HTTP health/smoke checks · audit trails · real-time event surfaces · deployment verification scripts.
+<b>OBSERVABILITY</b><br /><small>Sentry integration · HTTP health/smoke checks · audit trails · real-time event surfaces · deployment verification scripts.</small>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/05-AI%20BOUNDARY-8B5CF6?style=flat-square" alt="AI boundary" /><br /><br />
-<b>AI BOUNDARY</b><br />Legacy CDSS retired by default · MIRA/Assist named by retirement contract · Groq-backed STT when configured · optional provider keys for supported surfaces.
+<b>AI BOUNDARY</b><br /><small>Legacy CDSS retired by default · MIRA/Assist named by retirement contract · Groq-backed STT when configured · optional provider keys for supported surfaces.</small>
 </td>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/06-GOVERNANCE-14B8A6?style=flat-square" alt="Governance" /><br /><br />
-<b>GOVERNANCE</b><br />SAFRS R2 project contract · explicit human clinical authority · degraded-state disclosure · verification before promotion.
+<b>GOVERNANCE</b><br /><small>SAFRS R2 project contract · explicit human clinical authority · degraded-state disclosure · verification before promotion.</small>
 </td>
 </tr>
 </table>
