@@ -3,7 +3,7 @@
 <td width="34%" align="center" valign="middle">
 
 <a href="https://medboard.sentrahai.com">
-  <img src="public/medboard-clinical-smartboard-logo.webp" alt="MedBoard Clinical Smartboard logo" width="180" />
+  <img src="public/medboard-official-icon.webp" alt="Official MedBoard icon" width="180" />
 </a>
 <br /><br />
 <small><b><code>MEDBOARD</code></b></small><br />
