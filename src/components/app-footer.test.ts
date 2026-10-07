@@ -15,7 +15,18 @@ test('the footer links every legal tab as a plain anchor, so a click on /legal s
 })
 
 test('the footer states that clinical decisions stay with the treating health worker', () => {
-  assert.match(html, /Keputusan klinis tetap menjadi tanggung jawab tenaga kesehatan yang merawat pasien\./)
+  assert.match(html, /AI di MedBoard memberi saran\. Keputusan klinis tetap menjadi tanggung jawab tenaga kesehatan yang merawat pasien\./)
+})
+
+// Chief 2026-10-07: the identity line names Sentra HAI and the primary care it serves.
+test('the MedBoard column says who builds it and for whom', () => {
+  assert.match(html, /<p class="app-footer__text">Dibangun oleh Sentra HAI untuk layanan kesehatan primer di Indonesia\.<\/p>/)
+})
+
+// Chief 2026-10-07: the footer tagline is Chief's own line.
+test('the tagline reads "See Earlier. Decide Better."', () => {
+  assert.match(html, /<p class="app-footer__tagline">See Earlier\. Decide Better\.<\/p>/)
+  assert.doesNotMatch(html, /[Ss]istem informasi klinis|Dari anamnesis sampai rujukan/)
 })
 
 test('the footer links Sentra Hub inside the app and sentrahai.com in a new tab', () => {
