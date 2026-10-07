@@ -1,44 +1,31 @@
 <table width="100%">
 <tr>
-<td width="34%" align="center" valign="top">
+<td width="34%" align="center" valign="middle">
 
-<img src="https://i.ibb.co.com/jZwfy0vB/drferdiikskandar.png" alt="dr. Ferdi Iskandar" width="150" />
-<br /><br />
-<small><b><code>CREATOR · LEAD ARCHITECT</code></b></small><br />
-<b>dr. Ferdi Iskandar</b><br />
-<small>Human owner and system architect</small><br />
-<small>Sentra Artificial Intelligence</small>
-<br /><br />
-<a href="https://ferdiiskandar.com">
-  <img src="https://img.shields.io/badge/FERDIISKANDAR.COM-0D1117?style=for-the-badge&logo=vercel&logoColor=white" alt="Official website" />
+<a href="https://medboard.sentrahai.com">
+  <img src="public/medboard-clinical-smartboard-logo.webp" alt="MedBoard Clinical Smartboard logo" width="180" />
 </a>
 <br /><br />
-<img src="https://img.shields.io/badge/KEDIRI%20INDONESIA-22D3EE?style=flat-square" alt="Kediri Indonesia" />
-<img src="https://img.shields.io/badge/UTC%2B7-5B8CFF?style=flat-square" alt="UTC+7" />
+<small><b><code>MEDBOARD</code></b></small><br />
+<small>Clinical Smartboard · Sentra Healthcare Artificial Intelligence</small><br /><br />
+<img src="https://img.shields.io/badge/DOMAIN-HEALTHCARE-5B8CFF?style=flat-square" alt="Healthcare" />
+<img src="https://img.shields.io/badge/RISK-SAFRS%20R2-F59E0B?style=flat-square" alt="SAFRS R2" />
 
 </td>
-<td width="66%" align="center" valign="top">
+<td width="66%" valign="top">
 
-<small><b><code>SENTRA / HEALTHCARE ARTIFICIAL INTELLIGENCE</code></b></small>
-<br /><br />
-
-<a href="https://medboard.sentrahai.com">
-  <img src="public/medboard-clinical-smartboard-logo.webp" alt="Medboard · Clinical Smartboard" width="260" />
-</a>
-
-<br />
+SENTRA / MEDBOARD
 
 <a href="https://medboard.sentrahai.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Caveat&weight=700&size=31&duration=3400&pause=1500&color=EB5939&center=true&vCenter=true&width=650&height=42&lines=Clinical%20signals%20in.%20Reviewable%20decisions%20out." alt="Clinical signals in. Reviewable decisions out." />
+  <img src="https://readme-typing-svg.demolab.com?font=Caveat&weight=700&size=33&duration=3400&pause=1500&color=EB5939&vCenter=true&width=710&height=44&lines=Clinical%20signals%20in.%20Reviewable%20decisions%20out." alt="Clinical signals in. Reviewable decisions out." />
 </a>
 
-<br />
-<small><b>Clinical Smartboard for human-governed primary-care operations.</b></small><br />
-<small>Clinical workflow · EMR integration · real-time coordination · reporting · telemedicine · audited decision support.</small>
+<b>Operational signal:</b> Primary-care clinical operations · human-governed decision support
 
-<br /><br />
-<img src="https://img.shields.io/badge/PRIMARY%20CARE-CLINICAL%20OPERATIONS-22D3EE?style=flat-square" alt="Primary care clinical operations" />
-<img src="https://img.shields.io/badge/AUTHORITY-HUMAN-F59E0B?style=flat-square" alt="Human authority" />
+<a href="https://sentrahai.com/"><b>Sentra Artificial Intelligence</b></a><br />
+Clinical Smartboard connecting clinical workflow, EMR integration, real-time coordination, reporting, telemedicine, and auditable decision support.
+
+<small>Architected and built by <b>dr. Ferdi Iskandar (the Gaffer)</b>.</small>
 
 <p>
   <a href="https://github.com/drferdi/Medboard" title="GitHub"><img src="https://cdn.simpleicons.org/github/8B949E" width="22" height="22" alt="GitHub" /></a>&nbsp;&nbsp;
@@ -46,7 +33,7 @@
   <a href="https://sentrahai.com/" title="Sentra Artificial Intelligence"><img src="https://cdn.simpleicons.org/googlechrome/8B949E" width="22" height="22" alt="Sentra Artificial Intelligence" /></a>&nbsp;&nbsp;
   <a href="https://medium.com/@drferdiiskandar" title="Medium"><img src="https://cdn.simpleicons.org/medium/8B949E" width="22" height="22" alt="Medium" /></a>&nbsp;&nbsp;
   <a href="https://orcid.org/0009-0003-3788-1307" title="ORCID"><img src="https://cdn.simpleicons.org/orcid/8B949E" width="22" height="22" alt="ORCID" /></a>&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/dr-ferdi-iskandar-1b620a3b5" title="LinkedIn"><img src="https://cdn.simpleicons.org/linkedin/8B949E" width="22" height="22" alt="LinkedIn" /></a>
+  <a href="https://www.linkedin.com/in/dr-ferdi-iskandar-1b620a3b5"><img src="https://img.shields.io/badge/LinkedIn-808080?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" height="22" /></a>
 </p>
 
 <sub><code>CLINICAL SIGNAL → WORKFLOW → VERIFICATION → HUMAN AUTHORITY → CARE ACTION</code></sub>
@@ -56,7 +43,7 @@
 </table>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-16.3.6-0D1117?style=flat-square&logo=next.js&logoColor=white" alt="Next.js 16.3.6" />
+  <img src="https://img.shields.io/badge/Next.js-16.3.8-0D1117?style=flat-square&logo=next.js&logoColor=white" alt="Next.js 16.3.8" />
   <img src="https://img.shields.io/badge/React-19.2.3-149ECA?style=flat-square&logo=react&logoColor=white" alt="React 19.2.3" />
   <img src="https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript 5.9.3" />
   <img src="https://img.shields.io/badge/Node.js-24-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js 24" />
@@ -380,7 +367,7 @@ flowchart TB
 
 <table width="100%">
 <tr>
-<td width="50%" valign="top"><small><b><code>BASE RUNTIME</code></b></small><br /><small>Node.js 24 · pnpm 11.21.0 through Corepack · Next.js 16.3.6 · React 19.2.3 · TypeScript 5.9.3.</small></td>
+<td width="50%" valign="top"><small><b><code>BASE RUNTIME</code></b></small><br /><small>Node.js 24 · pnpm 11.21.0 through Corepack · Next.js 16.3.8 · React 19.2.3 · TypeScript 5.9.3.</small></td>
 <td width="50%" valign="top"><small><b><code>DATABASE</code></b></small><br /><small>PostgreSQL is required for database-backed workflows. Prisma generation/migrations are explicit lifecycle steps.</small></td>
 </tr>
 <tr>
@@ -559,7 +546,7 @@ MedBoard is dual-licensed under the terms in `LICENSE`. Review those terms befor
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
-  <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16.3.6-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" /></a><br />
+  <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16.3.8-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" /></a><br />
   <img src="https://img.shields.io/badge/ROLE-APP%20FRAMEWORK-5B8CFF?style=flat-square" alt="App Framework" />
   <img src="https://img.shields.io/badge/USE-UI%20%2B%20ROUTES-22D3EE?style=flat-square" alt="UI and Routes" /><br />
   <small><b>Next.js</b></small><br />
@@ -682,7 +669,7 @@ MedBoard is dual-licensed under the terms in `LICENSE`. Review those terms befor
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/02-FRONTEND%20%26%20UI-22D3EE?style=flat-square" alt="Frontend & UI" /><br /><br />
 <small><b><code>FRONTEND & UI</code></b></small><br />
-<small>Next.js 16.3.6 App Router · React 19.2.3 · Tailwind CSS 4.2.1 · IBM Plex Sans/Mono · Lucide React · Chart.js / react-chartjs-2 · Leaflet / react-leaflet · Motion · Tweakpane.</small>
+<small>Next.js 16.3.8 App Router · React 19.2.3 · Tailwind CSS 4.2.1 · IBM Plex Sans/Mono · Lucide React · Chart.js / react-chartjs-2 · Leaflet / react-leaflet · Motion · Tweakpane.</small>
 </td>
 </tr>
 <tr>
