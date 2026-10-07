@@ -79,7 +79,7 @@ const suites: Suite[] = [
     aliases: ['redesign', 'shell', 'tokens'],
     command: process.execPath,
     args: ['./node_modules/tsx/dist/cli.mjs', '--test', 'src/app/design-tokens.test.ts',
-      'src/app/text-case.test.ts', 'src/app/icons.test.ts', 'src/lib/text/sentence-case.test.ts', 'src/lib/text/tidy-case.test.ts', 'src/lib/text/tidy-field.test.ts', 'src/components/ui/ui.test.tsx', 'src/components/shell/shell.test.ts',
+      'src/app/text-case.test.ts', 'src/app/icons.test.ts', 'src/app/legal/legal-page.test.ts', 'src/lib/text/sentence-case.test.ts', 'src/lib/text/tidy-case.test.ts', 'src/lib/text/tidy-field.test.ts', 'src/components/ui/ui.test.tsx', 'src/components/shell/shell.test.ts',
       'src/app/voice/audrey-page.test.ts', 'src/app/voice/visual/matrix-orb.test.ts', 'src/components/sign-in/intro.test.ts', 'src/components/sign-in/sentra-lockup.test.tsx'],
   },
   {
@@ -98,6 +98,12 @@ const suites: Suite[] = [
       'src/lib/icd/who-blocks.test.ts'],
   },
   {
+    name: 'hub-organisation',
+    aliases: ['organisation', 'hub'],
+    command: process.execPath,
+    args: ['./node_modules/tsx/dist/cli.mjs', '--test', 'src/lib/hub/organisation.test.ts', 'src/app/hub/organisation-tab.test.ts'],
+  },
+  {
     name: 'atlas',
     aliases: ['anatomy'],
     command: process.execPath,
@@ -108,6 +114,12 @@ const suites: Suite[] = [
     aliases: ['auth', 'security'],
     command: process.execPath,
     args: ['./node_modules/tsx/dist/cli.mjs', 'scripts/test-auth-hardening.ts'],
+  },
+  {
+    name: 'allowed-origins',
+    aliases: ['cors', 'csp'],
+    command: process.execPath,
+    args: ['./node_modules/tsx/dist/cli.mjs', '--test', 'src/lib/server/allowed-origins.test.ts'],
   },
   {
     name: 'passkey-helpers',
