@@ -15,10 +15,11 @@ allowBuilds:
   sharp: true
   '@sentry/cli': false
 
-# Advisori keamanan (pnpm audit 2026-09-26): transitif lewat next/@sentry/nextjs
-# (postcss, sharp) dan lewat @prisma/config (deepmerge-ts, effect).
+# Advisori keamanan (pnpm audit 2026-10-07): transitif lewat next/@sentry/nextjs
+# (postcss, sharp, source-map-js) dan lewat @prisma/config (deepmerge-ts, effect).
 overrides:
   postcss: ">=8.5.23"
-  sharp: ">=0.35.4"
+  sharp: ">=0.35.5"
+  source-map-js: ">=1.2.2"
   deepmerge-ts: ">=8.0.1"
   effect: ">=3.20.0"
