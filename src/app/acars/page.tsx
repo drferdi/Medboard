@@ -8,6 +8,7 @@ import { type OnlineSource, onlineSourceLabel } from '@/lib/crew-online'
 import styles from './acars.module.css'
 
 const DEFAULT_CENTER: [number, number] = [-7.8166, 112.0116] // Puskesmas Balowerti
+const KEDIRI_CENTER: [number, number] = [-7.8111, 112.0047] // Kota Kediri; zoom 13 shows the whole city
 
 const StaffMap = dynamic(() => import('@/components/map/StaffMap'), {
   ssr: false,
@@ -233,8 +234,8 @@ export default function AcarsPage() {
         <div>
           <h1 className={styles.title}>Sentra Network</h1>
           <p className="ui-page-header__description">
-            ACARS — Active communication and coordination radar system untuk kolaborasi klinis
-            internal.
+            ACARS — Active Communication and Coordination Radar System, sebuah sistem yang dirancang
+            untuk memfasilitasi kolaborasi klinis internal secara aktif.
           </p>
         </div>
 
@@ -261,7 +262,7 @@ export default function AcarsPage() {
 
       {/* Map Section — no fake markers until GPS data available */}
       <div className={`${styles.card} ${styles.map}`}>
-        <StaffMap staff={staffLocations} center={DEFAULT_CENTER} zoom={19} />
+        <StaffMap staff={staffLocations} center={KEDIRI_CENTER} zoom={13} />
         {staffLocations.length === 0 && (
           <div className={styles.mapEmpty}>Tidak ada crew online saat ini.</div>
         )}

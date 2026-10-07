@@ -1,9 +1,16 @@
 'use client'
 
+import { maplibreGL } from '@maplibre/maplibre-gl-leaflet'
 import L from 'leaflet'
+import { Minus, Plus } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import 'maplibre-gl/dist/maplibre-gl.css'
+
+// Chief 2026-10-07: the open source grey basemap. OpenFreeMap needs no key and allows commercial
+// use; the layer passes the style's OpenFreeMap, OpenMapTiles and OpenStreetMap credits to Leaflet.
+const GREY_BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type StaffLocation = {
@@ -118,6 +125,18 @@ function MapController({ center }: { center: [number, number] }) {
   return null
 }
 
+// ─── Grey Basemap (OpenFreeMap Positron vector tiles) ─────────────────────────
+function GreyBasemap() {
+  const map = useMap()
+  useEffect(() => {
+    const layer = maplibreGL({ style: GREY_BASEMAP_STYLE }).addTo(map)
+    return () => {
+      layer.remove()
+    }
+  }, [map])
+  return null
+}
+
 // ─── Main Component ───────────────────────────────────────────────────────────
 type StaffMapProps = {
   staff: StaffLocation[]
@@ -134,6 +153,7 @@ export default function StaffMap({
   onStaffClick,
 }: StaffMapProps) {
   const [mounted, setMounted] = useState(false)
+  const [map, setMap] = useState<L.Map | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -161,7 +181,8 @@ export default function StaffMap({
   const onlineCount = staff.filter(s => s.isOnline).length
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+    // data-lenis-prevent: the mouse wheel over the map zooms it instead of scrolling the page.
+    <div style={{ width: '100%', height: '100%', position: 'relative' }} data-lenis-prevent>
       <style>{`
         .leaflet-popup-content-wrapper {
           background: var(--surface) !important;
@@ -224,20 +245,25 @@ export default function StaffMap({
         </div>
       </div>
 
+      {/* Zoom buttons sit outside the map so their clicks never pass through Leaflet's handlers. */}
+      <div style={{ position: 'absolute', top: 16, right: 16, zIndex: 1000, display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <button type="button" className="ui-btn ui-btn--ghost ui-btn--sm" style={{ width: 32, padding: 0 }} aria-label="Perbesar peta" onClick={() => map?.zoomIn()}>
+          <Plus size={16} aria-hidden />
+        </button>
+        <button type="button" className="ui-btn ui-btn--ghost ui-btn--sm" style={{ width: 32, padding: 0 }} aria-label="Perkecil peta" onClick={() => map?.zoomOut()}>
+          <Minus size={16} aria-hidden />
+        </button>
+      </div>
+
       {/* Map Container */}
       <MapContainer
+        ref={setMap}
         center={center}
         zoom={zoom}
         style={{ width: '100%', height: '100%', background: 'var(--surface-subtle)' }}
         zoomControl={false}
       >
-        {/* Light tiles - CARTO Positron (no API key) */}
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          subdomains="abcd"
-          maxZoom={20}
-        />
+        <GreyBasemap />
 
         <MapController center={center} />
 
