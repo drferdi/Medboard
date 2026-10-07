@@ -3,32 +3,42 @@
 <td width="34%" align="center" valign="top">
 
 <img src="https://i.ibb.co.com/jZwfy0vB/drferdiikskandar.png" alt="dr. Ferdi Iskandar" width="150" />
-<br />
+<br /><br />
+<small><b><code>CREATOR · LEAD ARCHITECT</code></b></small><br />
 <b>dr. Ferdi Iskandar</b><br />
-Lead Architect
-<br />
+<small>Human owner and system architect</small><br />
+<small>Sentra Artificial Intelligence</small>
+<br /><br />
 <a href="https://ferdiiskandar.com">
   <img src="https://img.shields.io/badge/FERDIISKANDAR.COM-0D1117?style=for-the-badge&logo=vercel&logoColor=white" alt="Official website" />
 </a>
-<br />
+<br /><br />
 <img src="https://img.shields.io/badge/KEDIRI%20INDONESIA-22D3EE?style=flat-square" alt="Kediri Indonesia" />
 <img src="https://img.shields.io/badge/UTC%2B7-5B8CFF?style=flat-square" alt="UTC+7" />
 
 </td>
-<td width="66%" valign="top">
+<td width="66%" align="center" valign="top">
 
-SENTRA / MEDBOARD
-
-<img src="public/intelligenceboard.png" alt="MedBoard" width="92" align="right" />
+<small><b><code>SENTRA / HEALTHCARE ARTIFICIAL INTELLIGENCE</code></b></small>
+<br /><br />
 
 <a href="https://medboard.sentrahai.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Caveat&weight=700&size=33&duration=3400&pause=1500&color=EB5939&vCenter=true&width=710&height=44&lines=Clinical%20signals%20in.%20Reviewable%20decisions%20out." alt="Clinical signals in. Reviewable decisions out." />
+  <img src="public/medboard-clinical-smartboard-logo.webp" alt="Medboard · Clinical Smartboard" width="260" />
 </a>
 
-<b>Operational signal:</b> Kediri, Indonesia · UTC+7 · primary-care clinical operations under human authority
+<br />
 
-<a href="https://sentrahai.com/"><b>Sentra Artificial Intelligence</b></a><br />
-Clinical workflow, EMR integration, real-time coordination, reporting, telemedicine, and audited decision-support surfaces in one operational cockpit.
+<a href="https://medboard.sentrahai.com">
+  <img src="https://readme-typing-svg.demolab.com?font=Caveat&weight=700&size=31&duration=3400&pause=1500&color=EB5939&center=true&vCenter=true&width=650&height=42&lines=Clinical%20signals%20in.%20Reviewable%20decisions%20out." alt="Clinical signals in. Reviewable decisions out." />
+</a>
+
+<br />
+<small><b>Clinical Smartboard for human-governed primary-care operations.</b></small><br />
+<small>Clinical workflow · EMR integration · real-time coordination · reporting · telemedicine · audited decision support.</small>
+
+<br /><br />
+<img src="https://img.shields.io/badge/PRIMARY%20CARE-CLINICAL%20OPERATIONS-22D3EE?style=flat-square" alt="Primary care clinical operations" />
+<img src="https://img.shields.io/badge/AUTHORITY-HUMAN-F59E0B?style=flat-square" alt="Human authority" />
 
 <p>
   <a href="https://github.com/drferdi/Medboard" title="GitHub"><img src="https://cdn.simpleicons.org/github/8B949E" width="22" height="22" alt="GitHub" /></a>&nbsp;&nbsp;
