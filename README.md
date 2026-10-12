@@ -226,7 +226,7 @@ flowchart TB
 <tr>
 <td width="50%" valign="top">
 <small><b><code>15 · DECISION-SUPPORT BOUNDARY</code></b></small><br />
-<small>The legacy MedBoard diagnosis engine remains in source but is retired by default. Its route returns 503 unless deliberately re-enabled; the retirement contract names MIRA through Assist as the differential source.</small>
+<small>The legacy MedBoard diagnosis engine remains in source but is retired by default. Its route returns 503 unless deliberately re-enabled; the existing differential retirement contract routes through Assist; the clinical reasoning engine is presented as AADI RAG (Augmented AI Diagnosis Integration).</small>
 </td>
 <td width="50%" valign="top">
 <small><b><code>16 · HEALTH & RELEASE SIGNALS</code></b></small><br />
@@ -253,7 +253,7 @@ flowchart TB
 <td width="50%" valign="top"><small><b><code>RPA / BRIDGE LAYER</code></b></small><br /><small>Playwright filler, bridge mapper, queue, source trace, visit history, field mappings, transfer orchestrator, and workflow handlers implement the ePuskesmas transfer lane.</small></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><small><b><code>TELEMEDICINE LAYER</code></b></small><br /><small>LiveKit token/session support is combined with consult validation, deduplication, device checks, vital-sign handling, notifications, transcript audio, MIRA differential helper, and EMR bridge mapping.</small></td>
+<td width="50%" valign="top"><small><b><code>TELEMEDICINE LAYER</code></b></small><br /><small>LiveKit token/session support is combined with consult validation, deduplication, device checks, vital-sign handling, notifications, transcript audio, AADI RAG differential helper, and EMR bridge mapping.</small></td>
 <td width="50%" valign="top"><small><b><code>REPORTING LAYER</code></b></small><br /><small>Clinical reporting and LB1 modules cover report generation/storage, clinical activity, ICD mapping, transformations, template writing, history, and spreadsheet/RME export behavior.</small></td>
 </tr>
 <tr>
@@ -700,7 +700,7 @@ MedBoard is dual-licensed under the terms in `LICENSE`. Review those terms befor
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/07-AI%20%26%20AUTOMATION-64748B?style=flat-square" alt="AI & Automation" /><br /><br />
 <small><b><code>AI & AUTOMATION</code></b></small><br />
-<small>Playwright RPA · MIRA-via-Assist retirement contract for differential diagnosis · Groq Whisper STT · telemedicine OpenRouter helper · optional DeepSeek / Perplexity / OpenRouter provider configuration · deterministic local safety paths where implemented.</small>
+<small>Playwright RPA · AADI RAG through Assist, governed by the existing differential-diagnosis retirement contract · Groq Whisper STT · telemedicine OpenRouter helper · optional DeepSeek / Perplexity / OpenRouter provider configuration · deterministic local safety paths where implemented.</small>
 </td>
 <td width="50%" valign="top">
 <img src="https://img.shields.io/badge/08-TESTING%20%26%20QA-10B981?style=flat-square" alt="Testing & QA" /><br /><br />
