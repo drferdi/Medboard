@@ -3,6 +3,9 @@
 
 # Binary files: never convert or diff as text. PNG images are stored in Git LFS.
 *.png filter=lfs diff=lfs merge=lfs -text
+# Next.js reads metadata icons during builds; Git deployments need actual PNG bytes.
+src/app/icon.png -filter -diff -merge -text
+src/app/apple-icon.png -filter -diff -merge -text
 # Atlas anatomy geometry (gzip chunks, about 70 MB) is stored in Git LFS too.
 public/atlas/models/*.gz filter=lfs diff=lfs merge=lfs -text
 *.jpg binary

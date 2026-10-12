@@ -10,6 +10,11 @@ type Suite = {
 
 const suites: Suite[] = [
   {
+    name: 'metadata-icons',
+    command: process.execPath,
+    args: ['--test', 'scripts/metadata-icons.test.mjs'],
+  },
+  {
     name: 'doctors-contacts-route',
     aliases: ['doctors-contacts', 'send-to-doctors'],
     command: process.execPath,
